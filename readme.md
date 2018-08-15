@@ -49,7 +49,8 @@ export function TestService($username) {
 // add this before Vue instance creation
 import { TestService } from './services/test'
 Vue.constant('username', 'John')
-Vue.service('test', TestService)
+Vue.service('test', TestService, ['username'])
+// register TestService with 'test' name and define dependency 'username'
 ```
 
 > Home.vue
@@ -73,4 +74,53 @@ export default {
   }
 }
 </script>
+```
+
+## Manual Injector
+You can use injector directly in components
+``` js
+export default {
+    data() {
+        return {
+            test: null
+        }
+    },
+    created(){
+        this.test = this.$injector('test')
+    }
+}
+```
+
+## Scopes
+You can define in which scope service should be initalized. As default it refers to config scope param
+
+```js
+export default {
+    uses: [{ service: 'test', scope: 'CUSTOM_SCOPE' }]
+    /* ... */
+}
+```
+You can use it inside manual injector as well
+
+## Plugin options
+
+| Key        | Type           | Default  | Comment | 
+| ------------- | ------------- | ----- | ----- | 
+| prefix      | string |  "$" | Services will be registered in components with given prefix |
+| debug      | bool      |   false | Show advanced logging to console |
+| strategy   | ['preload', null] | null | Use preload strategy if you want all services to be initialized immidiately in default scope |
+| scope | string      | "default" | Sets the default namespace where services will be initialized |
+
+## Memory cleanup
+You can removed initialized instances of service calling 
+
+```js
+/* ... */
+// will remove all instances
+this.$clear()
+// will remove all instances in 'default' scope
+this.$clear('default')
+// will remove only Test service instance in 'default' scope
+this.$clear('default', 'test');
+/* ... */
 ```

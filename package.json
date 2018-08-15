@@ -1,6 +1,6 @@
 {
   "name": "vuejection",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Dependency Injection implementation for Vue.js",
   "main": "index.js",
   "scripts": {
