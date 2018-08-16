@@ -1,6 +1,6 @@
 {
   "name": "vuejection",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A Dependency Injection implementation for Vue.js",
   "main": "index.js",
   "scripts": {
@@ -10,10 +10,24 @@
     "type": "git",
     "url": "git+https://github.com/AllenRei/vue-di.git"
   },
+  "keywords": [
+    "di",
+    "dependency",
+    "injection",
+    "pattern",
+    "perfomance",
+    "store",
+    "services",
+    "vue",
+    "memory"
+  ],
   "author": "AllenRei",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/AllenRei/vue-di/issues"
   },
-  "homepage": "https://github.com/AllenRei/vue-di#readme"
+  "homepage": "https://github.com/AllenRei/vue-di#readme",
+  "dependencies": {
+    "vue": "~2.5.10"
+  }
 }

@@ -1,14 +1,14 @@
 # vuejection
 ## A Dependency Injection implementation for Vue.js
 
-#### Install
+## Install
 
+### install package
 ``` bash
-# install package
-npm i -D vuejection
+npm install --save vuejection
 ```
 
-## Initialize
+### Initialize
 
 > main.js
 ``` js
@@ -92,7 +92,7 @@ export default {
 ```
 
 ## Scopes
-You can define in which scope service should be initalized. As default it refers to config scope param
+You can define in which scope service should be initalized. As default it refers to scope param in config
 
 ```js
 export default {
@@ -112,15 +112,15 @@ You can use it inside manual injector as well
 | scope | string      | "default" | Sets the default namespace where services will be initialized |
 
 ## Memory cleanup
-You can removed initialized instances of service calling 
+You can remove initialized instances of service calling 
 
 ```js
 /* ... */
-// will remove all instances
+// removes all instances
 this.$clear()
-// will remove all instances in 'default' scope
+// removes all instances in 'default' scope
 this.$clear('default')
-// will remove only Test service instance in 'default' scope
+// removes only Test service instance in 'default' scope
 this.$clear('default', 'test');
 /* ... */
 ```
